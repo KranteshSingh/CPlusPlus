@@ -1,10 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int multiply(int arr[], int n)
+{
+    int multi = 1;
+    for (int i = 0; i < n; i++)
+        multi *= arr[i];
+    return multi;
+}
+
 int main()
 {
-    int t, n;
-    int arr[100];
+    int t, n, arr[100], total = 0;
     cin >> t;
     while (t != 0)
     {
@@ -13,13 +20,9 @@ int main()
         {
             cin >> arr[i];
         }
-
-        for (int j = 0; j < n; j++)
-        {
-            cout << arr[j] << " ";
-        }
+        total = multiply(arr, n);
+        cout << total << endl;
         t--;
     }
-
     return 0;
 }
