@@ -5,7 +5,7 @@ int main()
 {
     int testCase, i, z;
 
-    long long size, key;
+    long long size, key, diff;
     cin >> testCase;
     while (testCase != 0)
     {
@@ -19,15 +19,18 @@ int main()
             cin >> myArray[i];
         }
 
+        // handling the case where key is greater than size
+        (key < size) ? diff = size - key : diff = size - (key % size);
+
         // Copying elements in the newArray from size-key to size of the myArray
         int j = 0;
-        for (i = size - key, j = 0; i < size; i++, j++)
+        for (i = diff, j = 0; i < size; i++, j++)
         {
             newArray[j] = myArray[i];
         }
 
         // Copying the elements in the newArray from 0th element to size-key element of myArray to newArray
-        for (i = 0; i < size - key; i++, j++)
+        for (i = 0; i < diff; i++, j++)
         {
             newArray[j] = myArray[i];
         }
